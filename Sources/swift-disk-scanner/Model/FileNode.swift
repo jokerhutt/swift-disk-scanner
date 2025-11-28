@@ -2,7 +2,7 @@ import Atomics
 import Foundation
 
 
-final class FileNode {
+public final class FileNode {
     let path: String
     let type: FileType
     weak var parent: FileNode?
