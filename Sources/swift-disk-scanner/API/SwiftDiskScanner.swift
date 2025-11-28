@@ -3,8 +3,7 @@
 
 
 public enum SwiftDiskScanner {
-//    public static func startScan(_ config: ScanConfig) throws -> FileNode {
-//       TODO ADD IMPL
-//
-//    }
+    public static func startScan(_ config: ScanConfig) throws -> FileNode {
+        return ParallelScannerRunner(config: config).run()
+    }
 }

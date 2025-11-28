@@ -1,26 +1,32 @@
+public enum SizeKind: Sendable {
+    case allocated
+    case logical
+}
 public struct ScanConfig: Sendable {
-    
-    /// Starting directory for the scan
+
     public let root: String
-    
-    /// Max recursion depth (0 = only root, 1 = root + children, …)
     public let maxDepth: Int
-
-    /// Follow symbolic links. Dangerous if true.
     public let followSymlinks: Bool
-
-    /// Number of worker threads (0 = auto choose)
     public let workerCount: Int
+    public let includeFiles: Bool
+    public let sizeKind: SizeKind
+    public let stayOnDevice: Bool
 
     public init(
         root: String = "/",
         maxDepth: Int = .max,
         followSymlinks: Bool = false,
-        workerCount: Int = 0
+        workerCount: Int = 0,
+        includeFiles: Bool = false,
+        sizeKind: SizeKind = .allocated,
+        stayOnDevice: Bool = false
     ) {
         self.root = root
         self.maxDepth = maxDepth
         self.followSymlinks = followSymlinks
         self.workerCount = workerCount
+        self.includeFiles = includeFiles
+        self.sizeKind = sizeKind
+        self.stayOnDevice = stayOnDevice
     }
 }
