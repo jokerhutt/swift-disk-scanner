@@ -66,7 +66,7 @@ final class BlockingQueue<T> {
 }
 
 
-
+/// Converts the initial bucket count into the nearest power of two
 private extension Int {
     func getNextPowerOfTwo() -> Int {
         var v = self - 1
